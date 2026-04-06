@@ -1,6 +1,4 @@
-import { Download } from 'lucide-react'
-
-const DOWNLOAD_URL = 'https://github.com/tonycoronado/butlrapp/releases/latest'
+import { DownloadButtons } from './DownloadButtons'
 
 export function FinalCTA() {
   return (
@@ -28,18 +26,10 @@ export function FinalCTA() {
             Free to download. No credit card required.
           </p>
 
-          <a
-            href={DOWNLOAD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-xl bg-blue-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/30 transition-all hover:bg-blue-400 hover:shadow-blue-400/40 active:scale-95"
-          >
-            <Download size={18} />
-            Download Butlr — It&apos;s Free
-          </a>
+          <DownloadButtons />
 
           <p className="mt-5 text-xs text-[#64748B]">
-            Available for Windows 10+ and macOS 12+
+            Free to download · No credit card required
           </p>
         </div>
       </div>

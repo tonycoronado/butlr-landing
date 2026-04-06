@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Check, Minus, Zap, Crown } from 'lucide-react'
 
 const CHECKOUT = {
@@ -30,6 +30,12 @@ type Billing = 'monthly' | 'annual'
 
 export function Pricing() {
   const [billing, setBilling] = useState<Billing>('monthly')
+  const [freeDownloadHref, setFreeDownloadHref] = useState('/api/download/windows')
+
+  useEffect(() => {
+    const isMac = /Mac/i.test(navigator.userAgent)
+    if (isMac) setFreeDownloadHref('/api/download/mac')
+  }, [])
 
   const prices = {
     starter: { monthly: 9, annual: 7 },
@@ -82,7 +88,7 @@ export function Pricing() {
             price={0}
             billing={billing}
             description="For individuals exploring AI productivity."
-            cta={{ label: 'Download free', href: 'https://github.com/tonycoronado/butlrapp/releases/latest', variant: 'ghost' }}
+            cta={{ label: 'Download free', href: freeDownloadHref, variant: 'ghost', external: false }}
             highlighted={false}
           />
 
@@ -141,7 +147,7 @@ interface PlanCardProps {
   price: number
   billing: Billing
   description: string
-  cta: { label: string; href: string; variant: 'primary' | 'ghost' | 'warning' }
+  cta: { label: string; href: string; variant: 'primary' | 'ghost' | 'warning'; external?: boolean }
   highlighted: boolean
 }
 
@@ -185,8 +191,7 @@ function PlanCard({ name, badge, price, billing, description, cta, highlighted }
 
       <a
         href={cta.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...(cta.external !== false ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className={`block w-full rounded-xl px-4 py-2.5 text-center text-sm transition-all active:scale-95 ${ctaClass}`}
       >
         {cta.label}

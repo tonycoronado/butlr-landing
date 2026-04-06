@@ -1,9 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Download, Play, Mail, Calendar, CheckSquare, Zap } from 'lucide-react'
-
-const DOWNLOAD_URL = 'https://github.com/tonycoronado/butlrapp/releases/latest'
+import { Play, Mail, Calendar, CheckSquare, Zap } from 'lucide-react'
+import { DownloadButtons } from './DownloadButtons'
 
 export function Hero() {
   return (
@@ -55,22 +54,15 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-16 flex flex-wrap items-center justify-center gap-4"
+          className="mb-16 flex flex-col items-center gap-4"
         >
-          <a
-            href={DOWNLOAD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2.5 rounded-xl bg-blue-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-400 hover:shadow-blue-400/30 active:scale-95"
-          >
-            <Download size={16} />
-            Download for Free
-          </a>
+          <DownloadButtons />
+          <p className="text-xs text-[#64748B]">Free to download · No credit card required</p>
           <a
             href="#how-it-works"
-            className="flex items-center gap-2.5 rounded-xl border border-[#1E293B] px-7 py-3.5 text-sm font-medium text-[#94A3B8] transition-all hover:border-[#334155] hover:text-[#F1F5F9] active:scale-95"
+            className="flex items-center gap-2 text-sm font-medium text-[#64748B] transition-colors hover:text-[#94A3B8] active:scale-95"
           >
-            <Play size={14} className="fill-current" />
+            <Play size={13} className="fill-current" />
             See How It Works
           </a>
         </motion.div>
