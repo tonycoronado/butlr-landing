@@ -1,4 +1,4 @@
-import { Mail, CalendarDays, CheckSquare, Sunrise, MessageSquare, Zap } from 'lucide-react'
+import { Mail, CalendarDays, CheckSquare, Sunrise, MessageSquare, BellRing } from 'lucide-react'
 
 const FEATURES = [
   {
@@ -42,10 +42,10 @@ const FEATURES = [
     bg: 'bg-sky-500/10',
   },
   {
-    icon: Zap,
-    title: 'Schedule Optimizer',
+    icon: BellRing,
+    title: 'Follow-up Tracking',
     description:
-      'Butlr analyzes your calendar load and flags overloaded days, back-to-back conflicts, and meetings you probably don\'t need to attend.',
+      'Butlr watches your sent emails and surfaces threads where no one has replied. Never let an important conversation go cold again.',
     color: 'text-rose-400',
     bg: 'bg-rose-500/10',
   },

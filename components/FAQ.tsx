@@ -32,6 +32,10 @@ const FAQS = [
     q: 'What\'s the difference between Free and Starter?',
     a: 'The Free plan gives you 10 AI chat messages per day and access to Claude Haiku. Starter unlocks 100 messages/day, Claude Sonnet (significantly smarter for complex tasks), and meeting prep briefs. Pro unlocks unlimited messages, all Claude models including Opus, and priority support.',
   },
+  {
+    q: 'Why does macOS / Windows warn me that Butlr is from an unidentified developer?',
+    a: 'Butlr is code-signed but not yet notarized through Apple\'s notarization service (a $99/year program) or Microsoft\'s EV signing process. On macOS, right-click the app and choose "Open" the first time — you\'ll only need to do this once. On Windows, click "More info" then "Run anyway" in the SmartScreen dialog. We\'re working on full notarization for the next release.',
+  },
 ]
 
 export function FAQ() {
